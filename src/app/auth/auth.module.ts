@@ -3,11 +3,18 @@ import { AuthService } from "./services/auth.service";
 import { Registercomponent } from "./components/register/register.component";
 import { RouterModule, Routes } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
+import { LoginComponent } from "./components/login/login.component";
+import { authGuard } from "./services/authGuard.service";
 
 const routes: Routes = [
     {
         path: 'register',
         component: Registercomponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+        canActivate: [authGuard]
     }
 ]
 
@@ -16,6 +23,6 @@ const routes: Routes = [
     ReactiveFormsModule
     ],
     providers: [AuthService],
-    declarations: [Registercomponent]
+    declarations: [Registercomponent, LoginComponent]
 })
 export class AuthModule{}

@@ -3,17 +3,17 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { HttpErrorResponse } from '@angular/common/http';
+import { LoginRequestInterface } from '../../types/loginRequest.interface';
 import { Router } from '@angular/router';
 
 @Component({
     selector: 'auth-register',
-    templateUrl: "./register.component.html"
+    templateUrl: "./login.component.html"
 })
-export class Registercomponent{
+export class LoginComponent{
     form = this.fb.group({
         email:['', Validators.required],
-        username:['', Validators.required],
-        password:['', Validators.required],
+        password:['', Validators.required]
     });
 
     constructor(private fb: FormBuilder, private authService: AuthService, private router: Router){
@@ -21,7 +21,7 @@ export class Registercomponent{
     }
 
     onSubmit(): void{
-        this.authService.register(this.form.value as RegisterRequestInterface).
+        this.authService.login(this.form.value as LoginRequestInterface).
         subscribe({
             next: (currentUser) => {
                 console.log('currentuser', currentUser);
