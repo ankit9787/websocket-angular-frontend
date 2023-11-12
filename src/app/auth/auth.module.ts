@@ -14,7 +14,6 @@ const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
-        canActivate: [authGuard]
     }
 ]
 
