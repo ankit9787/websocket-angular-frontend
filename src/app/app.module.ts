@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { homeModule } from './home/home.module';
 import { AuthInterceptor } from './auth/services/authInterceptor.service';
 import { BoardsModule } from './boards/boards.module';
+import { BoardModule } from './board/board.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BoardsModule } from './boards/boards.module';
     AuthModule,
     HttpClientModule,
     homeModule,
-    BoardsModule
+    BoardsModule,
+    BoardModule
   ],
   providers: [
     {
