@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { homeModule } from './home/home.module';
 import { AuthInterceptor } from './auth/services/authInterceptor.service';
 import { BoardsModule } from './boards/boards.module';
 import { BoardModule } from './board/board.module';
+import { SocketService } from './shared/services/socket.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { BoardModule } from './board/board.module';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    SocketService,
   ],
   bootstrap: [AppComponent]
 })
